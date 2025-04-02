@@ -1,10 +1,13 @@
+import os
+from dotenv import load_dotenv
 import pymongo
 import inquirer
 from rich.console import Console
 from rich.prompt import Prompt
 
 # MongoDB Connection
-MONGO_URI = "mongodb+srv://Rabeet:9UeP7g8ILtM2wVdX@cluster0.j81k9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+load_dotenv()
+MONGO_URI = os.getenv("Mongo_Key")
 client = pymongo.MongoClient(MONGO_URI)
 db = client["book_manager"]
 collection = db["books"]
